@@ -1,11 +1,8 @@
 package me.ItsJasonn.HexRPG.Tools;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Random;
-
+import de.tr7zw.itemnbtapi.NBTItem;
+import me.ItsJasonn.HexRPG.Main.Core;
+import me.ItsJasonn.HexRPG.Main.Plugin;
 import org.apache.commons.lang.WordUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -22,8 +19,11 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import de.tr7zw.itemnbtapi.NBTItem;
-import me.ItsJasonn.HexRPG.Main.Plugin;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Random;
 
 public class StatsManager {
 	private HashMap<Player, Integer> playerMaxHealth = new HashMap<Player, Integer>();
@@ -184,12 +184,12 @@ public class StatsManager {
 		
 		int itemType = -1;
 		for (ItemStack armor : Plugin.getCore().armorList) {
-			if(armor.getType() == item.getType() && armor.getDurability() == item.getDurability()) {
+            if (armor.getType() == item.getType() && Core.getDurability(armor) == Core.getDurability(item)) {
 				itemType = 0;
 			}
 		}
 		for (ItemStack weapon : Plugin.getCore().weaponList) {
-			if(weapon.getType() == item.getType() && weapon.getDurability() == item.getDurability()) {
+            if (weapon.getType() == item.getType() && Core.getDurability(weapon) == Core.getDurability(item)) {
 				itemType = 1;
 			}
 		}
@@ -298,7 +298,7 @@ public class StatsManager {
 		YamlConfiguration itemConversionConfig = YamlConfiguration.loadConfiguration(itemConversionFile);
 		
 		String materialName = "minecraft:" + item.getType().getKey().getKey();
-		String durability = Integer.toString(item.getDurability());
+        String durability = Integer.toString(Core.getDurability(item));
 		
 		if(itemConversionConfig.isConfigurationSection(materialName + "." + durability)) {
 			return ChatColor.translateAlternateColorCodes('&', itemConversionConfig.getString(materialName + "." + durability + ".name"));
@@ -314,7 +314,7 @@ public class StatsManager {
 		}
 		
 		for(ItemStack items : Plugin.getCore().itemList) {
-			if(is.getType() == items.getType() && is.getDurability() == items.getDurability()) {
+            if (is.getType() == items.getType() && Core.getDurability(is) == Core.getDurability(items)) {
 				return true;
 			}
 		}
@@ -328,7 +328,7 @@ public class StatsManager {
 		}
 		
 		for(ItemStack items : Plugin.getCore().weaponList) {
-			if(is.getType() == items.getType() && is.getDurability() == items.getDurability()) {
+            if (is.getType() == items.getType() && Core.getDurability(is) == Core.getDurability(items)) {
 				return true;
 			}
 		}
@@ -342,7 +342,7 @@ public class StatsManager {
 		}
 		
 		for(ItemStack items : Plugin.getCore().armorList) {
-			if(is.getType() == items.getType() && is.getDurability() == items.getDurability()) {
+            if (is.getType() == items.getType() && Core.getDurability(is) == Core.getDurability(items)) {
 				return true;
 			}
 		}
@@ -356,7 +356,7 @@ public class StatsManager {
 		}
 		
 		for(ItemStack items : Plugin.getCore().throwableList) {
-			if(is.getType() == items.getType() && is.getDurability() == items.getDurability()) {
+            if (is.getType() == items.getType() && Core.getDurability(is) == Core.getDurability(items)) {
 				return true;
 			}
 		}

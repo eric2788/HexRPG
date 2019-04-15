@@ -1,5 +1,8 @@
 package me.ItsJasonn.HexRPG.Tools;
 
+import me.ItsJasonn.HexRPG.Main.Core;
+import me.ItsJasonn.HexRPG.Main.Plugin;
+import me.ItsJasonn.HexRPG.RandomLib.RandomNumbers;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -9,9 +12,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-
-import me.ItsJasonn.HexRPG.Main.Plugin;
-import me.ItsJasonn.HexRPG.RandomLib.RandomNumbers;
 
 public class StartingKit {
 	private Player player;
@@ -32,8 +32,8 @@ public class StartingKit {
 			if(!config.getBoolean(path + ".use")) {
 				continue;
 			}
-			
-			ItemStack armorPiece = new ItemStack(Material.matchMaterial(config.getString(path + ".type")), config.getInt(path + ".amount"), (short) config.getInt(path + ".data"));
+
+            ItemStack armorPiece = Core.getLegacyItem(Material.matchMaterial(config.getString(path + ".type")), config.getInt(path + ".amount"), (short) config.getInt(path + ".data"));
 			if(Plugin.getCore().getStatsManager().isArmor(armorPiece)) {
 				if(config.getBoolean(path + ".unidentified")) {
 					Plugin.getCore().getStatsManager().setUnidentified(armorPiece);
@@ -76,8 +76,8 @@ public class StartingKit {
 		
 		for(String slotKeys : config.getConfigurationSection("starting-kit.items.inventory").getKeys(false)) {
 			String path = "starting-kit.items.inventory." + slotKeys;
-			
-			ItemStack item = new ItemStack(Material.matchMaterial(config.getString(path + ".type")), config.getInt(path + ".amount"), (short) config.getInt(path + ".data"));
+
+            ItemStack item = Core.getLegacyItem(Material.matchMaterial(config.getString(path + ".type")), config.getInt(path + ".amount"), (short) config.getInt(path + ".data"));
 			if(Plugin.getCore().getStatsManager().isArmor(item) || Plugin.getCore().getStatsManager().isWeapon(item) || Plugin.getCore().getStatsManager().isThrowable(item)) {
 				if(config.getBoolean(path + ".unidentified")) {
 					Plugin.getCore().getStatsManager().setUnidentified(item);

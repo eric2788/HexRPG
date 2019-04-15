@@ -1,7 +1,7 @@
 package me.ItsJasonn.HexRPG.Commands;
 
-import java.util.ArrayList;
-
+import me.ItsJasonn.HexRPG.Main.Core;
+import me.ItsJasonn.HexRPG.Main.Plugin;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -15,7 +15,7 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import me.ItsJasonn.HexRPG.Main.Plugin;
+import java.util.ArrayList;
 
 public class Tools implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
@@ -26,12 +26,12 @@ public class Tools implements CommandExecutor {
 				if (player.isOp() || player.hasPermission("hexrpg.tools")) {
 					if (args.length == 0) {
 						Inventory inv = Bukkit.getServer().createInventory(player, 9, Plugin.getCore().getLangTools().getUncoloredMessage("navigation.menu-names.tools"));
-						
-						ItemStack hammer = new ItemStack(Material.IRON_HOE, 1, (short) 21);
-						ItemStack hoe = new ItemStack(Material.IRON_HOE, 1);
-						ItemStack pickaxe = new ItemStack(Material.IRON_PICKAXE, 1);
-						ItemStack rod = new ItemStack(Material.FISHING_ROD, 1);
-						ItemStack lockpick = new ItemStack(Material.FLINT_AND_STEEL, 1);
+
+                        ItemStack hammer = Core.getLegacyItem(Material.IRON_HOE, 1, (short) 21);
+                        ItemStack hoe = Core.getLegacyItem(Material.IRON_HOE, 1);
+                        ItemStack pickaxe = Core.getLegacyItem(Material.IRON_PICKAXE, 1);
+                        ItemStack rod = Core.getLegacyItem(Material.FISHING_ROD, 1);
+                        ItemStack lockpick = Core.getLegacyItem(Material.FLINT_AND_STEEL, 1);
 						
 						for(ItemStack tool : new ItemStack[] { hammer, hoe, pickaxe, rod, lockpick }) {
 							ItemMeta toolMeta = tool.getItemMeta();

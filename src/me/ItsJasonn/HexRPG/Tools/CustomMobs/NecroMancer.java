@@ -1,22 +1,16 @@
 package me.ItsJasonn.HexRPG.Tools.CustomMobs;
 
-import java.util.ArrayList;
-import java.util.Random;
-
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.craftbukkit.v1_13_R1.entity.CraftEntity;
-import org.bukkit.entity.Damageable;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.PigZombie;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.Zombie;
-
 import me.ItsJasonn.HexRPG.Main.Plugin;
 import me.ItsJasonn.HexRPG.Tools.EffectTool;
-import net.minecraft.server.v1_13_R1.EntityInsentient;
-import net.minecraft.server.v1_13_R1.Navigation;
+import net.minecraft.server.v1_13_R2.EntityInsentient;
+import net.minecraft.server.v1_13_R2.Navigation;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.craftbukkit.v1_13_R2.entity.CraftEntity;
+import org.bukkit.entity.*;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class NecroMancer extends CustomMob {
 	private ArrayList<Entity> minions = new ArrayList<Entity>();

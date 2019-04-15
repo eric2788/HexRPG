@@ -1,8 +1,7 @@
 package me.ItsJasonn.HexRPG.Tools.CustomMobs;
 
-import java.util.ArrayList;
-import java.util.Random;
-
+import me.ItsJasonn.HexRPG.Commands.Potion;
+import me.ItsJasonn.HexRPG.Main.Plugin;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -14,13 +13,13 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityTargetLivingEntityEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.Potion;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.potion.PotionType;
 import org.bukkit.projectiles.ProjectileSource;
 
-import me.ItsJasonn.HexRPG.Main.Plugin;
+import java.util.ArrayList;
+import java.util.Random;
 
 @SuppressWarnings("deprecation")
 public class Caster extends CustomMob implements Listener {

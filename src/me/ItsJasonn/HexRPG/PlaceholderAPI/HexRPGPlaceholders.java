@@ -1,16 +1,17 @@
 package me.ItsJasonn.HexRPG.PlaceholderAPI;
 
-import org.bukkit.entity.Player;
-
 import me.ItsJasonn.HexRPG.Main.Core;
 import me.ItsJasonn.HexRPG.Main.Plugin;
 import me.ItsJasonn.HexRPG.Tools.PlayerLevel;
-import me.clip.placeholderapi.external.EZPlaceholderHook;
+import me.clip.placeholderapi.expansion.PlaceholderExpansion;
+import org.bukkit.entity.Player;
 
 @SuppressWarnings("deprecation")
-public class HexRPGPlaceholders extends EZPlaceholderHook {
+public class HexRPGPlaceholders extends PlaceholderExpansion {
+    private org.bukkit.plugin.Plugin plugin;
+
 	public HexRPGPlaceholders(Core core) {
-		super(core, "hexrpgplaceholder");
+        this.plugin = core;
 	}
 
 	@Override
@@ -69,4 +70,19 @@ public class HexRPGPlaceholders extends EZPlaceholderHook {
 		
 		return null;
 	}
+
+    @Override
+    public String getIdentifier() {
+        return "hexrpgplaceholder";
+    }
+
+    @Override
+    public String getAuthor() {
+        return plugin.getDescription().getAuthors().toString();
+    }
+
+    @Override
+    public String getVersion() {
+        return plugin.getDescription().getVersion();
+    }
 }

@@ -1,7 +1,8 @@
 package me.ItsJasonn.HexRPG.Commands;
 
-import java.util.ArrayList;
-
+import me.ItsJasonn.HexRPG.Main.Core;
+import me.ItsJasonn.HexRPG.Main.Plugin;
+import me.ItsJasonn.HexRPG.Tools.PlayerLevel;
 import org.apache.commons.lang.WordUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -19,8 +20,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
-import me.ItsJasonn.HexRPG.Main.Plugin;
-import me.ItsJasonn.HexRPG.Tools.PlayerLevel;
+import java.util.ArrayList;
 
 public class Stats implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
@@ -147,7 +147,7 @@ public class Stats implements CommandExecutor {
 						ItemStack mining = new ItemStack(Material.WOODEN_PICKAXE);
 						ItemStack hitpoints =  new ItemStack(Material.APPLE);
 						ItemStack fishing = new ItemStack(Material.FISHING_ROD);
-						ItemStack smithing = new ItemStack(Material.IRON_HOE, 1, (short) 21);
+                        ItemStack smithing = Core.getLegacyItem(Material.IRON_HOE, 1, (short) 21);
 						ItemStack master = new ItemStack(Material.BEACON);
 						
 						SkullMeta profileMeta = (SkullMeta) profile.getItemMeta();

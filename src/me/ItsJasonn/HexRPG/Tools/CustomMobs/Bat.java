@@ -1,21 +1,20 @@
 package me.ItsJasonn.HexRPG.Tools.CustomMobs;
 
-import java.util.HashMap;
-
+import me.ItsJasonn.HexRPG.Main.Plugin;
+import net.minecraft.server.v1_13_R2.EntityInsentient;
+import net.minecraft.server.v1_13_R2.Navigation;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
-import org.bukkit.craftbukkit.v1_13_R1.entity.CraftEntity;
+import org.bukkit.craftbukkit.v1_13_R2.entity.CraftEntity;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 
-import me.ItsJasonn.HexRPG.Main.Plugin;
-import net.minecraft.server.v1_13_R1.EntityInsentient;
-import net.minecraft.server.v1_13_R1.Navigation;
+import java.util.HashMap;
 
 public class Bat extends CustomMob implements Listener {
 	private HashMap<Player, Integer> movevementCounter = new HashMap<Player, Integer>();
